@@ -12,7 +12,7 @@ def call(env)
       if item.name == item_name
         resp.write item.price
       else
-        resp.write "We don't have that item"
+        resp.write "Item not found"
         resp.status = 404
       end
     end
