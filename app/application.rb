@@ -10,7 +10,7 @@ def call(env)
     item_name = req.path.split("/items/").last
     @@items.detect do |item|
       if item.name == item_name
-        item.price
+        resp.write item.price
       else
         resp.write "We don't have that item"
         resp.status = 404
