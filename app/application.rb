@@ -4,7 +4,7 @@ def call(env)
   resp = Rack::Response.new
   req = Rack::Request.new(env)
 
-  if req.path == "/items/"
+  if req.path.match(/items/)
     item_name = req.path.split("/items/").last
     Item.all.detect do |item|
       if item.name == item_name
