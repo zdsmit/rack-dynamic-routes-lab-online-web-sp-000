@@ -4,9 +4,10 @@ def call(env)
   resp = Rack::Response.new
   req = Rack::Request.new
 
-  if req.path == "/items/<ITEM NAME>"
+  if req.path == "/items/"
+    item_name = req.path.split("/items/").last
     Item.all.detect do |item|
-      if item.name == <ITEM NAME>
+      if item.name == item_name
         item.price
       else
         resp.write "We don't have that item"
